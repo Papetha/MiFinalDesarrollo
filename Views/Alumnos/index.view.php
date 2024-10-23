@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <a href="createAlumno.php" class="btn btn-success float-right">Agregar Alumno</a>
+                        <a href="createAlumnos.php" class="btn btn-success float-right">Agregar Alumno</a>
                         <h2 class="pull-left">Lista de Usuarios</h2>
                     </div>
                     <table id="listaAlumnos" class="table table-sm table-striped table-bordered" style="width:100%">
@@ -61,11 +61,11 @@
                                     <td><?= $alumno->id; ?></td>
                                     <td><?= $alumno->nombre; ?></td>
                                     <td><?= $alumno->apellido; ?></td>
-                                    <td><?= date('d/m/Y', strtotime($alumno->fecha_nacimiento)); ?></td>
+                                    <td><?= date('d/m/Y', strtotime($alumno->fecnac)); ?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="editarAlumno.php?id=<?= $alumno->id; ?>" class="btn btn-warning btn-sm">Editar</a>
-                                            <a href="eliminarAlumno.php?id=<?= $alumno->id; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                                            <a href="updateAlumnos.php?id=<?= $alumno->id; ?>" class="btn btn-warning btn-sm">Editar</a>
+                                            <a href="deleteAlumnos.php?id=<?= $alumno->id; ?>" class="btn btn-danger btn-sm">Eliminar</a>
                                         </div>
                                     </td>
                                 </tr>

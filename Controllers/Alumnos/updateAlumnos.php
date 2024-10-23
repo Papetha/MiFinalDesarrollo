@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ .'/../Models/Alumno.php';
+require_once __DIR__ .'/../../Models/Alumno.php';
 
 $id = $_GET['id'];
 
@@ -19,7 +19,7 @@ if(isset($_POST['actualizarDatos'])){
 } else  {
     $alumno = Alumno::getById($id);
     if ($alumno) {
-        require_once __DIR__ .'/../Views/Alumnos/update.view.php';
+        require_once __DIR__ .'/../../Views/Alumnos/update.view.php';
     }
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ .'/../Models/Profesor.php';
+require_once __DIR__ .'/../../Models/Profesor.php';
 
 if(isset($_POST['crearProfesor'])){
     $nombre = $_POST['nombre'];
@@ -12,10 +12,8 @@ if(isset($_POST['crearProfesor'])){
     $profesor->apellido = $apellido;
     $profesor->materia_id = $materia_id;
     $profesor->create();
-} else {
-    echo "No se presionó el botón de enviar formulario";
 }
 
 $materias = Materia::all();
 
-require_once __DIR__ .'/../Views/Profesores/create.view.php';
+require_once __DIR__ .'/../../Views/Profesores/create.view.php';

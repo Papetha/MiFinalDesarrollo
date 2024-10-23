@@ -40,7 +40,7 @@ class Profesor extends Conexion {
 
     public function materia() {
         return Materia::getById($this->materia_id);
-    }
+    } //traer la materia que da el profesor
 
     public static function getById($id) {
         $conexion = new Conexion();

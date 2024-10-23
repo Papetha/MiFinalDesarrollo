@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Alumno</title>
+    <title>Crear Profesor</title>
     <!-- Include bootstrap last version -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Include jQuery last version -->
@@ -46,7 +46,7 @@
                                </select>
                             </div>
 
-                            <button type="submit" name="enviarFormulario" class="btn btn-primary">
+                            <button type="submit" name="crearProfesor" class="btn btn-primary">
                                 <i class="fas fa fa-send">Enviar</i>
                             </button>
 

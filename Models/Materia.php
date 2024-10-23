@@ -23,7 +23,7 @@ class Materia extends Conexion {
     public function update() {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "UPDATE materia SET nombre = ? WHERE id = ?");
-        $pre->bind_param("s", $this->nombre,$this->id);
+        $pre->bind_param("si", $this->nombre,$this->id);
         $pre->execute();
     }
     public static function all() {
@@ -37,7 +37,7 @@ class Materia extends Conexion {
             $materias[] = $materia;
         }
         return $materias;
-    }
+    } //ver materias
 
     public static function getById($id) {
         $conexion = new Conexion();
@@ -48,7 +48,7 @@ class Materia extends Conexion {
         $valorDb = $result->get_result();
         $materia = $valorDb->fetch_object(Materia::class);
         return $materia;
-    }
+    } // agarrar id 
 
     public function profesores() {
         $this->conectar();
@@ -78,6 +78,6 @@ class Materia extends Conexion {
         }
 
         return $alumnos;
-    }
+    } // traer por id todos los alumnos participantes de la materia
 
 }
