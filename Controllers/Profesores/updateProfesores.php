@@ -19,6 +19,6 @@ if(isset($_POST['actualizarDatos'])){
 } else  {
     $profesor = Profesor::getById($id);
     if ($profesor) {
-        require_once __DIR__ .'/../Views/editarAlumno.view.php';
+        require_once __DIR__ .'/../Views/Profesores/update.view.php';
     }
 }

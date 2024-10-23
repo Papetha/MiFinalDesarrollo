@@ -8,5 +8,5 @@ $materia = Materia::getById($id);
 
 if ($materia) {
     $materia->delete();
-    header('Location: ../Controllers/indexAlumno.php');
+    header('Location: ../Controllers/Materias/indexAlumno.php');
 }

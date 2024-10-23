@@ -15,11 +15,11 @@ if(isset($_POST['actualizarDatos'])){
     $alumno->fecnac = $fecnac;
     $alumno->update();
 
-    header('Location: ../Controllers/indexAlumno.php');
+    header('Location: ../Controllers/Alumnos/indexAlumnos.php');
 } else  {
     $alumno = Alumno::getById($id);
     if ($alumno) {
-        require_once __DIR__ .'/../Views/editarAlumno.view.php';
+        require_once __DIR__ .'/../Views/Alumnos/update.view.php';
     }
 }
 

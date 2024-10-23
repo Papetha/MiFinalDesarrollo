@@ -18,4 +18,4 @@ if(isset($_POST['crearProfesor'])){
 
 $materias = Materia::all();
 
-require_once __DIR__ .'/../Views/createProfesor.view.php';
+require_once __DIR__ .'/../Views/Profesores/create.view.php';

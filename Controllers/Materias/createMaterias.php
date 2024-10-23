@@ -12,4 +12,4 @@ if(isset($_POST['crearMateria'])){
     echo "No se presionó el botón de enviar formulario";
 }
 
-require_once __DIR__ .'/../Views/createMateria.view.php';
+require_once __DIR__ .'/../Views/Materias/create.view.php';
