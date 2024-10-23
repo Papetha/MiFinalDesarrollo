@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ .'/../Models/Alumno.php';
+require_once __DIR__. '/../Models/Alumno.php';
 
 if(isset($_POST['crearAlumno'])){
     $nombre = $_POST['nombre'];
@@ -17,4 +17,4 @@ if(isset($_POST['crearAlumno'])){
     echo "No se presionó el botón de enviar formulario";
 }
 
-require_once __DIR__ .'/../Views/createAlumno.view.php';
+require_once __DIR__ .'/../Views/Alumnos/create.view.php';
