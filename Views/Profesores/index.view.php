@@ -45,7 +45,7 @@
                 <div class="col-md-12">
                     <div class="page-header clearfix">
                         <a href="createProfesores.php" class="btn btn-success float-right">Agregar Profesor</a>
-                        <h2 class="pull-left">Lista de Usuarios</h2>
+                        <h2 class="pull-left">Lista de Profesores</h2>
                     </div>
                     <table id="ListaProfesores" class="table table-sm table-striped table-bordered" style="width:100%">
                         <thead>

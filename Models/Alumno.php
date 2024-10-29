@@ -64,6 +64,5 @@ class Alumno extends Conexion {
             $materias[] = $materia;
         }
         return $materias;
-    }
-   //traer todas las materias de los alumnos por id
+    }//traer todas las materias de los alumnos por id
 }
