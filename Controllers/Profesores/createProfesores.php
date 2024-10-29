@@ -12,6 +12,8 @@ if(isset($_POST['crearProfesor'])){
     $profesor->apellido = $apellido;
     $profesor->materia_id = $materia_id;
     $profesor->create();
+
+    header('Location: indexProfesores.php');
 }
 
 $materias = Materia::all();

@@ -11,11 +11,25 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Include fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     
 </head>
 
 <body>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" 
+               href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">Alumnos</a>
+            <a class="nav-item nav-link" 
+               href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">Profesores</a>
+            <a class="nav-item nav-link" 
+               href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">Materias</a>
+        </div>
+    </div>
+</nav>
     <div class="container">
         <div class="row mt-5">
             <div class="col col-12">
@@ -36,8 +50,8 @@
                                 <input type="text" value="<?= $alumno->apellido ?>" name="apellido" id="apellido" class="form-control">
                             </div>
                             <div class="form-group" id="fecha_nacimiento">
-                                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                                <input type="date" value="<?= $alumno->fecha_nacimiento ?>" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control">
+                                <label for="fecnac">Fecha de Nacimiento</label>
+                                <input type="date" value="<?= $alumno->fecnac ?>" name="fecnac" id="fecnac" class="form-control">
                             </div>
                             <button type="submit" name="actualizarDatos" class="btn btn-primary">
                                 <i class="fas fa fa-send">Actualizar</i>

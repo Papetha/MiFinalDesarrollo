@@ -12,10 +12,10 @@ if(isset($_POST['actualizarDatos'])){
     $profesor = Profesor::getById($id);
     $profesor->nombre = $nombre;
     $profesor->apellido = $apellido;
-    $profesor->fmateria_id = $materia_id;
+    $profesor->materia_id = $materia_id;
     $profesor->update();
 
-    header('Location: ../../Controllers/indexAlumno.php');
+    header('Location: indexProfesores.php');
 } else  {
     $profesor = Profesor::getById($id);
     if ($profesor) {

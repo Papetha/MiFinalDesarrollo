@@ -8,5 +8,5 @@ $profesor = Profesor::getById($id);
 
 if ($profesor) {
     $profesor->delete();
-    header('Location: ../../Profesores/indexProfesores.php');
+    header('Location: indexProfesores.php');
 }

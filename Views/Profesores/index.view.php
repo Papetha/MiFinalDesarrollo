@@ -21,9 +21,24 @@
             margin: 20px;
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" 
+               href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">Alumnos</a>
+            <a class="nav-item nav-link" 
+               href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">Profesores</a>
+            <a class="nav-item nav-link" 
+               href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">Materias</a>
+        </div>
+    </div>
+</nav>
     <div class="bs-example">
         <div class="container">
             <div class="row">
@@ -32,12 +47,15 @@
                         <a href="createProfesores.php" class="btn btn-success float-right">Agregar Profesor</a>
                         <h2 class="pull-left">Lista de Usuarios</h2>
                     </div>
-                    <table id="listaAlumnos" class="table table-sm table-striped table-bordered" style="width:100%">
+                    <table id="ListaProfesores" class="table table-sm table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
+
+                                <th>Materia</th>
+
                                 <th>Acciones</th>
 
                             </tr>
@@ -50,6 +68,7 @@
                                     <td><?= $profesor->id; ?></td>
                                     <td><?= $profesor->nombre; ?></td>
                                     <td><?= $profesor->apellido; ?></td>
+                                    <td><?= $profesor->materia()->nombre; ?></td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="updateProfesores.php?id=<?= $profesor->id; ?>" class="btn btn-warning btn-sm">Editar</a>
@@ -78,7 +97,7 @@
 </body>
 <script>
     $(document).ready(function() {
-        $('#listaAlumnos').DataTable({});
+        $('#ListaProfesores').DataTable({});
     });
 </script>
 

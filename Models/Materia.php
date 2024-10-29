@@ -20,12 +20,19 @@ class Materia extends Conexion {
         $pre->bind_param("i", $this->id);
         $pre->execute();
     }
+    // public function update() {
+    //     $this->conectar();
+    //     $pre = mysqli_prepare($this->con, "UPDATE materia SET nombre = ? WHERE id = ?");
+    //     $pre->bind_param("si", $this->nombre,$this->id);
+    //     $pre->execute();
+    // }
     public function update() {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "UPDATE materia SET nombre = ? WHERE id = ?");
-        $pre->bind_param("si", $this->nombre,$this->id);
+        $pre = mysqli_prepare($this->con, "UPDATE materias SET nombre = ? WHERE id = ?");
+        $pre->bind_param("si", $this->nombre, $this->id);
         $pre->execute();
     }
+
     public static function all() {
         $conexion = new Conexion();
         $conexion->conectar();

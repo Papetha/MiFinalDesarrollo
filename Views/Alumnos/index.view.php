@@ -21,9 +21,24 @@
             margin: 20px;
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" 
+               href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">Alumnos</a>
+            <a class="nav-item nav-link" 
+               href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">Profesores</a>
+            <a class="nav-item nav-link" 
+               href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">Materias</a>
+        </div>
+    </div>
+</nav>
     <div class="bs-example">
         <div class="container">
             <div class="row">
@@ -46,16 +61,6 @@
                         <tbody>
 
                             <?php
-
-                            // foreach ($alumnos as $alumnos) {
-                            //     echo "<tr>";
-                            //     echo "<td>" . $alumnos->id . "</td>";
-                            //     echo "<td>" . $alumnos->nombre . "</td>";
-                            //     echo "<td>" . $alumnos->apellido . "</td>";
-                            //     echo "<td>" . $alumnos->fecha_nacimiento . "</td>";
-                            //     echo "</tr>";
-                            // }
-
                             foreach ($alumnos as $alumno) { ?>
                                 <tr>
                                     <td><?= $alumno->id; ?></td>

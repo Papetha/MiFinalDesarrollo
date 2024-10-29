@@ -15,7 +15,7 @@ if(isset($_POST['actualizarDatos'])){
     $alumno->fecnac = $fecnac;
     $alumno->update();
 
-    header('Location: ../Controllers/Alumnos/indexAlumnos.php');
+    header('Location: indexAlumnos.php');
 } else  {
     $alumno = Alumno::getById($id);
     if ($alumno) {

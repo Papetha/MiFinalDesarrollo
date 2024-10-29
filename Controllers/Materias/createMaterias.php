@@ -8,6 +8,7 @@ if(isset($_POST['crearMateria'])){
     $materia = new Materia();
     $materia->nombre = $nombre;
     $materia->create();
+    header('Location: indexMaterias.php');
 } 
 
 require_once __DIR__ .'/../../Views/Materias/create.view.php';
