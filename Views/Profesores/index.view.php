@@ -23,22 +23,23 @@
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
-        <div class="navbar-nav">
-            <a class="nav-item nav-link" 
-               href="../Alumnos/indexAlumnos.php">Alumnos</a>
-            <a class="nav-item nav-link" 
-               href="../Profesores/indexProfesores.php">Profesores</a>
-            <a class="nav-item nav-link" 
-               href="../Materias/indexMaterias.php">Materias</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link"
+                    href="../Alumnos/indexAlumnos.php">Alumnos</a>
+                <a class="nav-item nav-link"
+                    href="../Profesores/indexProfesores.php">Profesores</a>
+                <a class="nav-item nav-link"
+                    href="../Materias/indexMaterias.php">Materias</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <div class="bs-example">
         <div class="container">
             <div class="row">
@@ -47,45 +48,46 @@
                         <a href="createProfesores.php" class="btn btn-success float-right">Agregar Profesor</a>
                         <h2 class="pull-left">Lista de Profesores</h2>
                     </div>
-                    <table id="ListaProfesores" class="table table-sm table-striped table-bordered" style="width:100%">
+                    <table id="listaProfesores" class="table table-sm table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
-
-                                <th>Materia</th>
-
+                                <th>Materias</th>
                                 <th>Acciones</th>
-
                             </tr>
                         </thead>
                         <tbody>
-
-                            <?php
-                            foreach ($profesores as $profesor) { ?>
+                            <?php foreach ($profesores as $profesor) { ?>
                                 <tr>
                                     <td><?= $profesor->id; ?></td>
                                     <td><?= $profesor->nombre; ?></td>
                                     <td><?= $profesor->apellido; ?></td>
-                                    <td><?= $profesor->materia()->nombre; ?></td>
+                                    <td>
+                                        <a href="materiavistaProfesores.php?id=<?= $profesor->id; ?>" class="btn btn-info btn-sm">
+                                            <i class="fas fa-book-open"></i> Ver Materias
+                                        </a>
+                                    </td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="updateProfesores.php?id=<?= $profesor->id; ?>" class="btn btn-warning btn-sm">Editar</a>
-                                            <a href="deleteProfesores.php?id=<?= $profesor->id; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                                            <a href="updateProfesores.php?id=<?= $profesor->id; ?>"
+                                                class="btn btn-warning btn-sm">Editar</a>
+                                            <a href="deleteProfesores.php?id=<?= $profesor->id; ?>"
+                                                class="btn btn-danger btn-sm">Eliminar</a>
+                                            <a href="editarMateriarProfesores.php?id=<?= $profesor->id; ?>"
+                                                class="btn btn-info btn-sm">Asignar/Desasignar Materias</a>
                                         </div>
                                     </td>
                                 </tr>
-                            
-                            <?php }
-
-                            ?>
+                            <?php } ?>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
+                                <th>Materias</th>
                                 <th>Acciones</th>
                             </tr>
                         </tfoot>
@@ -97,7 +99,7 @@
 </body>
 <script>
     $(document).ready(function() {
-        $('#ListaProfesores').DataTable({});
+        $('#listaProfesores').DataTable({});
     });
 </script>
 

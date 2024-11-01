@@ -3,18 +3,21 @@
 require_once 'Conexion.php';
 require_once 'Materia.php';
 
-class Alumno extends Conexion {
+class Alumno extends Conexion
+{
 
     public $id, $nombre, $apellido, $fecnac;
 
-    public function create() {
+    public function create()
+    {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "INSERT INTO alumnos (nombre, apellido, fecnac) VALUES (?, ?, ?)");
         $pre->bind_param("sss", $this->nombre, $this->apellido, $this->fecnac);
         $pre->execute();
     }
 
-    public static function all() {
+    public static function all()
+    {
         $conexion = new Conexion();
         $conexion->conectar();
         $result = mysqli_prepare($conexion->con, "SELECT * FROM alumnos");
@@ -27,7 +30,8 @@ class Alumno extends Conexion {
         return $alumnos;
     } //muestra todos los alumnos en el index
 
-    public static function getById($id) {
+    public static function getById($id)
+    {
         $conexion = new Conexion();
         $conexion->conectar();
         $result = mysqli_prepare($conexion->con, "SELECT * FROM alumnos WHERE id = ?");
@@ -38,21 +42,24 @@ class Alumno extends Conexion {
         return $alumno;
     } //elimina o edita un alumno por id 
 
-    public function delete() {
+    public function delete()
+    {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "DELETE FROM alumnos WHERE id = ?");
         $pre->bind_param("i", $this->id);
         $pre->execute();
     } //bind param medida de seg
 
-    public function update() {
+    public function update()
+    {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "UPDATE alumnos SET nombre = ?, apellido = ?, fecnac = ? WHERE id = ?");
         $pre->bind_param("sssi", $this->nombre, $this->apellido, $this->fecnac, $this->id);
         $pre->execute();
     }
 
-    public function materias() {
+    public function materias()
+    {
         $this->conectar();
         $result = mysqli_prepare($this->con, "SELECT materias.* FROM materias INNER JOIN alumno_materia ON materias.id = alumno_materia.materia_id WHERE alumno_materia.alumno_id = ?");
         $result->bind_param("i", $this->id);
@@ -64,16 +71,18 @@ class Alumno extends Conexion {
             $materias[] = $materia;
         }
         return $materias;
-    }//traer todas las materias de los alumnos por id
+    } //traer todas las materias de los alumnos por id
 
-    public function desasignarTodasLasMaterias() {
+    public function desasignarTodasLasMaterias()
+    {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "DELETE FROM alumno_materia WHERE alumno_id = ?");
         $pre->bind_param("i", $this->id);
         $pre->execute();
     }
-    
-    public function asignarMateria($materia_id) {
+
+    public function asignarMateria($materia_id)
+    {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "INSERT INTO alumno_materia (alumno_id, materia_id) VALUES (?, ?)");
         $pre->bind_param("ii", $this->id, $materia_id);

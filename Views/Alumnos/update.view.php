@@ -13,23 +13,23 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
-        <div class="navbar-nav">
-            <a class="nav-item nav-link" 
-               href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">Alumnos</a>
-            <a class="nav-item nav-link" 
-               href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">Profesores</a>
-            <a class="nav-item nav-link" 
-               href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">Materias</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link"
+                    href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">Alumnos</a>
+                <a class="nav-item nav-link"
+                    href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">Profesores</a>
+                <a class="nav-item nav-link"
+                    href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">Materias</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <div class="container">
         <div class="row mt-5">
             <div class="col col-12">

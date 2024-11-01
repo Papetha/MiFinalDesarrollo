@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materias de <?= $alumregis->nombre; ?></title>
+    <title>Materias de <?= $proferegistrado->nombre; ?></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -24,9 +24,9 @@
     </nav>
 
     <div class="container">
-        <h1 class="mb-4">Materias de <?= $alumregis->nombre; ?></h1>
+        <h1 class="mb-4">Materias de <?= $proferegistrado->nombre; ?></h1>
         <div class="list-group">
-            <?php foreach ($alumregis->materias() as $materia) { ?>
+            <?php foreach ($proferegistrado->materias() as $materia) { ?>
                 <div class="list-group-item">
                     <h5 class="mb-1"><?= $materia->nombre; ?></h5>
                 </div>

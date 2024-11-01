@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materias de <?= $alumregis->nombre; ?></title>
+    <title>Editar Materias del Profesor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -22,16 +22,23 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
-        <h1 class="mb-4">Materias de <?= $alumregis->nombre; ?></h1>
-        <div class="list-group">
-            <?php foreach ($alumregis->materias() as $materia) { ?>
-                <div class="list-group-item">
-                    <h5 class="mb-1"><?= $materia->nombre; ?></h5>
-                </div>
-            <?php } ?>
-        </div>
+        <h1 class="mb-4">Editar Materias de <?= $profesor->nombre . ' ' . $profesor->apellido ?></h1>
+        <form action="" method="post">
+            <div class="form-group">
+                <?php foreach ($todasLasMaterias as $materia): ?>
+                    <div class="custom-control custom-switch mb-2">
+                        <input type="checkbox" class="custom-control-input" id="materia_<?= $materia->id ?>"
+                            name="materias[]" value="<?= $materia->id ?>"
+                            <?= in_array($materia, $profesor->materias()) ? 'checked' : '' ?>>
+                        <label class="custom-control-label" for="materia_<?= $materia->id ?>"><?= $materia->nombre ?></label>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <button type="submit" name="guardarMaterias" class="btn btn-primary">
+                <i class="fas fa-save"></i> Guardar Cambios
+            </button>
+        </form>
     </div>
 </body>
 

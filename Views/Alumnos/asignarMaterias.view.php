@@ -10,7 +10,7 @@
     <form action="" method="post">
     <label for="materia_id">Materia</label>
         <?php foreach ($materias as $materia) { ?>
-            <input type="checkbox" name="materia_id[]" id="" value="<?=$materia->id?>">
+            <input type="checkbox" name="materia_id[]" id="" value="<?= $materia->id ?>">
             <?= $materia->nombre ?>
         <?php } ?>
 

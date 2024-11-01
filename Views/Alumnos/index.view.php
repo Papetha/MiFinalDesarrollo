@@ -23,21 +23,23 @@
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
-        <div class="navbar-nav">
-            <a class="nav-item nav-link" 
-               href="../Alumnos/indexAlumnos.php">Alumnos</a>
-            <a class="nav-item nav-link" 
-               href="../Profesores/indexProfesores.php">Profesores</a>
-            <a class="nav-item nav-link" 
-               href="../Materias/indexMaterias.php">Materias</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link"
+                    href="../Alumnos/indexAlumnos.php">Alumnos</a>
+                <a class="nav-item nav-link"
+                    href="../Profesores/indexProfesores.php">Profesores</a>
+                <a class="nav-item nav-link"
+                    href="../Materias/indexMaterias.php">Materias</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <div class="bs-example">
         <div class="container">
             <div class="row">
@@ -67,7 +69,11 @@
                                     <td><?= $alumno->nombre; ?></td>
                                     <td><?= $alumno->apellido; ?></td>
                                     <td><?= date('d/m/Y', strtotime($alumno->fecnac)); ?></td>
-                                    <td><a href="materiasvista.php?id=<?= $alumno->id; ?>"><button>Ver Materias</button></a></td>
+                                    <td>
+                                        <a href="materiasvista.php?id=<?= $alumno->id; ?>" class="btn btn-info btn-sm">
+                                            <i class="fas fa-book-open"></i> Ver Materias
+                                        </a>
+                                    </td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="updateAlumnos.php?id=<?= $alumno->id; ?>" class="btn btn-warning btn-sm">Editar</a>
@@ -78,7 +84,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                            
+
                             <?php }
 
                             ?>

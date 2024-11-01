@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ .'/../../Models/Profesor.php';
+require_once __DIR__ . '/../../Models/Profesor.php';
 
 $id = $_GET['id'];
 
-if(isset($_POST['actualizarDatos'])){
+if (isset($_POST['actualizarDatos'])) {
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $materia_id = $_POST['materia_id'];
@@ -16,9 +16,9 @@ if(isset($_POST['actualizarDatos'])){
     $profesor->update();
 
     header('Location: indexProfesores.php');
-} else  {
+} else {
     $profesor = Profesor::getById($id);
     if ($profesor) {
-        require_once __DIR__ .'/../../Views/Profesores/update.view.php';
+        require_once __DIR__ . '/../../Views/Profesores/update.view.php';
     }
 }

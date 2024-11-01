@@ -16,19 +16,19 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
-        <div class="navbar-nav">
-            <a class="nav-item nav-link" 
-               href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">Alumnos</a>
-            <a class="nav-item nav-link" 
-               href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">Profesores</a>
-            <a class="nav-item nav-link" 
-               href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">Materias</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link"
+                    href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">Alumnos</a>
+                <a class="nav-item nav-link"
+                    href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">Profesores</a>
+                <a class="nav-item nav-link"
+                    href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">Materias</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <div class="container">
         <div class="row mt-5">
             <div class="col col-12">
@@ -49,13 +49,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="materia_id">Materia</label>
-                                    <select class="form-control" name="materia_id" id="materia_id">
-                                        <?php foreach (Materia::all() as $materia) { ?>
-                                            <option value="<?= $materia->id ?>" <?= ($profesor->materia_id == $materia->id) ? 'selected' : '' ?>>
-                                                <?= $materia->nombre ?>
-                                            </option>
-                                        <?php } ?>
-                                    </select>
+                                <select class="form-control" name="materia_id" id="materia_id">
+                                    <?php foreach (Materia::all() as $materia) { ?>
+                                        <option value="<?= $materia->id ?>" <?= ($profesor->materia_id == $materia->id) ? 'selected' : '' ?>>
+                                            <?= $materia->nombre ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <button type="submit" name="actualizarDatos" class="btn btn-primary">
                                 <i class="fas fa fa-send">Actualizar</i>

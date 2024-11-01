@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__. '/../../Models/Alumno.php';
+require_once __DIR__ . '/../../Models/Alumno.php';
 
-if(isset($_POST['crearAlumno'])){
+if (isset($_POST['crearAlumno'])) {
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $fecnac = $_POST['fecnac'];
@@ -15,4 +15,4 @@ if(isset($_POST['crearAlumno'])){
 
     header('location: indexAlumnos.php');
 }
-require_once __DIR__ .'/../../Views/Alumnos/create.view.php';
+require_once __DIR__ . '/../../Views/Alumnos/create.view.php';

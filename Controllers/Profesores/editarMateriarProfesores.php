@@ -1,24 +1,24 @@
 <?php
-require_once __DIR__ . '/../../Models/Alumno.php';
+require_once __DIR__ . '/../../Models/Profesor.php';
 require_once __DIR__ . '/../../Models/Materia.php';
 
 $id = $_GET['id'];
-$alumno = Alumno::getById($id);
+$profesor = Profesor::getById($id);
 $todasLasMaterias = Materia::all();
 
 if (isset($_POST['guardarMaterias'])) {
     // Eliminar materias asignadas
-    $alumno->desasignarTodasLasMaterias();
+    $profesor->desasignarTodasLasMaterias();
 
     // Asignar las nuevas materias 
     if (isset($_POST['materias'])) {
         foreach ($_POST['materias'] as $materia_id) {
-            $alumno->asignarMateria($materia_id);
+            $profesor->asignarMateria($materia_id);
         }
     }
 
-    header('Location: indexAlumnos.php');
+    header('Location: indexProfesores.php');
     exit;
 }
 
-require_once __DIR__ . '/../../Views/Alumnos/editarMateriasAlumno.view.php';
+require_once __DIR__ . '/../../Views/Profesores/editarMateriasProfesores.view.php';

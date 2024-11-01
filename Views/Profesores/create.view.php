@@ -13,33 +13,30 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
-        <div class="navbar-nav">
-            <a class="nav-item nav-link" 
-               href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">Alumnos</a>
-            <a class="nav-item nav-link" 
-               href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">Profesores</a>
-            <a class="nav-item nav-link" 
-               href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">Materias</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link"
+                    href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">Alumnos</a>
+                <a class="nav-item nav-link"
+                    href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">Profesores</a>
+                <a class="nav-item nav-link"
+                    href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">Materias</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <div class="container">
         <div class="row mt-5">
             <div class="col col-12">
                 <div class="card">
                     <div class="card-header">
-
                         <h3>Crear Profesor</h3>
                     </div>
                     <div class="card-body">
-
                         <form action="" method="post">
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
@@ -49,29 +46,15 @@
                                 <label for="apellido">Apellido</label>
                                 <input type="text" name="apellido" id="apellido" class="form-control">
                             </div>
-                            <!-- Materias -->
-                            <div class="form-group">
-                                <label for="materia_id">Materia</label>
-                               <select class="form-control" name="materia_id" id="materia_id">
-                                    <option hidden value="">Seleccione una materia</option>
-                                    <?php foreach ($materias as $materia) { ?>
-                                        <option value="<?= $materia->id ?>"><?= $materia->nombre ?></option>
-                                    <?php } ?>
-                               </select>
-                            </div>
-
                             <button type="submit" name="crearProfesor" class="btn btn-primary">
-                                <i class="fas fa fa-send">Enviar</i>
+                                <i class="fas fa fa-send"></i> Enviar
                             </button>
-
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

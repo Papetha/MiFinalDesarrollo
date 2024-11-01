@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ .'/../../Models/Materia.php';
+require_once __DIR__ . '/../../Models/Materia.php';
 
 $id = $_GET['id'];
 
-if(isset($_POST['actualizarDatos'])){
+if (isset($_POST['actualizarDatos'])) {
     $nombre = $_POST['nombre'];
 
     $materia = Materia::getById($id);
@@ -12,9 +12,9 @@ if(isset($_POST['actualizarDatos'])){
     $materia->update();
 
     header('Location: ../../Controllers/Materias/indexMaterias.php');
-} else  {
+} else {
     $materia = Materia::getById($id);
     if ($materia) {
-        require_once __DIR__ .'/../../Views/Materias/update.view.php';
+        require_once __DIR__ . '/../../Views/Materias/update.view.php';
     }
 }
