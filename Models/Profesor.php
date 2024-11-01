@@ -18,6 +18,13 @@ class Profesor extends Conexion
     public function delete()
     {
         $this->conectar();
+        //primero elimino los registros en  la tabla profesor_materia
+
+        $pre = mysqli_prepare($this->con, "DELETE FROM profesor_materia WHERE alumno_id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+        
+        // despues elimino el registro en la tabla profesores
         $pre = mysqli_prepare($this->con, "DELETE FROM profesores WHERE id = ?");
         $pre->bind_param("i", $this->id);
         $pre->execute();
@@ -25,8 +32,8 @@ class Profesor extends Conexion
     public function update()
     {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "UPDATE profesores SET nombre = ?, apellido = ?, materia_id = ? WHERE id = ?");
-        $pre->bind_param("ssii", $this->nombre, $this->apellido, $this->materia_id, $this->id);
+        $pre = mysqli_prepare($this->con, "UPDATE profesores SET nombre = ?, apellido = ? WHERE id = ?");
+        $pre->bind_param("ssi", $this->nombre, $this->apellido, $this->id);
         $pre->execute();
     }
     public static function all()
@@ -56,7 +63,6 @@ class Profesor extends Conexion
     } //agarro por id al profe
 
     public function materias() //  muestro las materias del profesor
-
     {
         $this->conectar();
         $result = mysqli_prepare($this->con, "SELECT materias.* FROM materias INNER JOIN profesor_materia ON materias.id = profesor_materia.materia_id WHERE profesor_materia.profesor_id = ?");

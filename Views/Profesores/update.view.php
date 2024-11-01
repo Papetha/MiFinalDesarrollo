@@ -38,6 +38,7 @@
                         <h3>Editar Profesor - ID: <?= $profesor->id ?></h3>
                     </div>
                     <div class="card-body">
+                        
                         <form action="" method="post">
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
@@ -47,20 +48,11 @@
                                 <label for="apellido">Apellido</label>
                                 <input type="text" value="<?= $profesor->apellido ?>" name="apellido" id="apellido" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <label for="materia_id">Materia</label>
-                                <select class="form-control" name="materia_id" id="materia_id">
-                                    <?php foreach (Materia::all() as $materia) { ?>
-                                        <option value="<?= $materia->id ?>" <?= ($profesor->materia_id == $materia->id) ? 'selected' : '' ?>>
-                                            <?= $materia->nombre ?>
-                                        </option>
-                                    <?php } ?>
-                                </select>
-                            </div>
                             <button type="submit" name="actualizarDatos" class="btn btn-primary">
                                 <i class="fas fa fa-send">Actualizar</i>
                             </button>
                         </form>
+
                     </div>
                 </div>
             </div>

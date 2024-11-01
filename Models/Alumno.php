@@ -44,9 +44,16 @@ class Alumno extends Conexion // Clase Alumno que hereda de la clase Conexion
         return $alumno;
     }
 
-    public function delete() // Método para eliminar un alumno
+    public function delete()
     {
         $this->conectar();
+        // Primero elimino registros de  la tabla materias_alumnos
+
+        $pre = mysqli_prepare($this->con, "DELETE FROM alumno_materia WHERE alumno_id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+
+        // despues elimino al alumno
         $pre = mysqli_prepare($this->con, "DELETE FROM alumnos WHERE id = ?");
         $pre->bind_param("i", $this->id);
         $pre->execute();
