@@ -65,4 +65,18 @@ class Alumno extends Conexion {
         }
         return $materias;
     }//traer todas las materias de los alumnos por id
+
+    public function desasignarTodasLasMaterias() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "DELETE FROM alumno_materia WHERE alumno_id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+    }
+    
+    public function asignarMateria($materia_id) {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "INSERT INTO alumno_materia (alumno_id, materia_id) VALUES (?, ?)");
+        $pre->bind_param("ii", $this->id, $materia_id);
+        $pre->execute();
+    }
 }

@@ -72,8 +72,9 @@
                                         <div class="btn-group">
                                             <a href="updateAlumnos.php?id=<?= $alumno->id; ?>" class="btn btn-warning btn-sm">Editar</a>
                                             <a href="deleteAlumnos.php?id=<?= $alumno->id; ?>" class="btn btn-danger btn-sm">Eliminar</a>
-                                            <a href="asignarMateria.php?id=<?= $alumno->id; ?>" class="btn btn-primary btn-sm">Asignar Materia</a>
-                                            <a href="DesasignarMateria.php?id=<?= $alumno->id; ?>" class="btn btn-secondary btn-sm">Desasignar Materia</a>
+                                            <!-- <a href="asignarMateria.php?id=<?= $alumno->id; ?>" class="btn btn-primary btn-sm">Asignar Materia</a>
+                                            <a href="DesasignarMateria.php?id=<?= $alumno->id; ?>" class="btn btn-secondary btn-sm">Desasignar Materia</a> -->
+                                            <a href="editarMateriasAlumno.php?id=<?= $alumno->id; ?>" class="btn btn-info btn-sm">Asignar/Desasignar Materias</a>
                                         </div>
                                     </td>
                                 </tr>

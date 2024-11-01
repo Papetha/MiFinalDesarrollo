@@ -13,19 +13,19 @@ class Materia extends Conexion {
         $pre = mysqli_prepare($this->con, "INSERT INTO materias (nombre) VALUES (?)");
         $pre->bind_param("s", $this->nombre);
         $pre->execute();
-    }
+    } //CREO UNA MATERIA
     public function delete() {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "DELETE FROM materias WHERE id = ?");
         $pre->bind_param("i", $this->id);
         $pre->execute();
-    }
+    }//BORRO MATERIA
     public function update() {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "UPDATE materias SET nombre = ? WHERE id = ?");
         $pre->bind_param("si", $this->nombre, $this->id);
         $pre->execute();
-    }
+    }//ACTUALIZO MATERIA
 
     public static function all() {
         $conexion = new Conexion();
@@ -38,7 +38,7 @@ class Materia extends Conexion {
             $materias[] = $materia;
         }
         return $materias;
-    } //ver materias
+    } //ES EL READ BASICAMENTE
 
     public static function getById($id) {
         $conexion = new Conexion();
@@ -49,7 +49,7 @@ class Materia extends Conexion {
         $valorDb = $result->get_result();
         $materia = $valorDb->fetch_object(Materia::class);
         return $materia;
-    } // agarrar id 
+    } // agarrar id de la materia 
 
     public function profesores() {
         $this->conectar();
@@ -81,29 +81,29 @@ class Materia extends Conexion {
         return $alumnos;
     } // traer por id todos los alumnos participantes de la materia
 
-    public function asignarMateria($id, $materia_id){
-        $this->conectar();
-        $result = mysqli_prepare($this->con,  "INSERT INTO alumno_materia (alumno_id, materia_id) VALUES (?, ?)");
-        $result->bind_param("ii",  $id, $materia_id);
+    // public function asignarMateria($id, $materia_id){
+    //     $this->conectar();
+    //     $result = mysqli_prepare($this->con,  "INSERT INTO alumno_materia (alumno_id, materia_id) VALUES (?, ?)");
+    //     $result->bind_param("ii",  $id, $materia_id);
 
-        $result->execute();
-    }
+    //     $result->execute();
+    // }
     
-    public static function getbyAlumno($id){
-        $conexion = new Conexion();
-        $conexion->conectar();
-        $result = mysqli_prepare($conexion->con, "SELECT  * FROM alumno_materia WHERE alumno_id = ?");
-        $result->bind_param("i", $id);
-        $result->execute();
-        $valorDb = $result->get_result();
-        $alumno = $valorDb->fetch_object(Materia::class);
-        return $alumno;
-    }
+    // public static function getbyAlumno($id){
+    //     $conexion = new Conexion();
+    //     $conexion->conectar();
+    //     $result = mysqli_prepare($conexion->con, "SELECT  * FROM alumno_materia WHERE alumno_id = ?");
+    //     $result->bind_param("i", $id);
+    //     $result->execute();
+    //     $valorDb = $result->get_result();
+    //     $alumno = $valorDb->fetch_object(Materia::class);
+    //     return $alumno;
+    // }
 
-    public function desasignarMateria(){
-        $this->conectar();
-        $pre = mysqli_prepare($this->con, "DELETE FROM alumno_materia WHERE alumno_id = ?");
-        $pre->bind_param("i", $this->alumno_id);
-        $pre->execute();
-    }
+    // public function desasignarMateria(){
+    //     $this->conectar();
+    //     $pre = mysqli_prepare($this->con, "DELETE FROM alumno_materia WHERE alumno_id = ?");
+    //     $pre->bind_param("i", $this->alumno_id);
+    //     $pre->execute();
+    // }
 }
