@@ -22,7 +22,6 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
         <h1 class="mb-4">Materias de <?= $proferegistrado->nombre; ?></h1>
         <div class="list-group">

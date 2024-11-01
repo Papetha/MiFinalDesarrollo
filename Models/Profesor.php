@@ -59,19 +59,7 @@ class Profesor extends Conexion
         $profesor = $valorDb->fetch_object(Profesor::class);
         return $profesor;
     } //agarro por id al profe
-    // public function materias() {
-    //     $this->conectar();
-    //     $result = mysqli_prepare($this->con, "SELECT materias.* FROM materias INNER JOIN profesor_materia ON materias.id = profesor_materia.materia_id WHERE profesor_materia.profesor_id = ?");
-    //     $result->bind_param("i", $this->id);
-    //     $result->execute();
-    //     $valoresDb = $result->get_result();
-
-    //     $materias = [];
-    //     while ($materia = $valoresDb->fetch_object(Materia::class)) {
-    //         $materias[] = $materia;
-    //     }
-    //     return $materias;
-    // }
+    
     public function materias()
     {
         $this->conectar();

@@ -60,9 +60,7 @@
                             <button type="submit" name="actualizarDatos" class="btn btn-primary">
                                 <i class="fas fa fa-send">Actualizar</i>
                             </button>
-
                         </form>
-
                     </div>
                 </div>
             </div>

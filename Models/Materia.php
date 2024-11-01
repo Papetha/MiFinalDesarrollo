@@ -88,30 +88,4 @@ class Materia extends Conexion
 
         return $alumnos;
     } // traer por id todos los alumnos participantes de la materia
-
-    // public function asignarMateria($id, $materia_id){
-    //     $this->conectar();
-    //     $result = mysqli_prepare($this->con,  "INSERT INTO alumno_materia (alumno_id, materia_id) VALUES (?, ?)");
-    //     $result->bind_param("ii",  $id, $materia_id);
-
-    //     $result->execute();
-    // }
-
-    // public static function getbyAlumno($id){
-    //     $conexion = new Conexion();
-    //     $conexion->conectar();
-    //     $result = mysqli_prepare($conexion->con, "SELECT  * FROM alumno_materia WHERE alumno_id = ?");
-    //     $result->bind_param("i", $id);
-    //     $result->execute();
-    //     $valorDb = $result->get_result();
-    //     $alumno = $valorDb->fetch_object(Materia::class);
-    //     return $alumno;
-    // }
-
-    // public function desasignarMateria(){
-    //     $this->conectar();
-    //     $pre = mysqli_prepare($this->con, "DELETE FROM alumno_materia WHERE alumno_id = ?");
-    //     $pre->bind_param("i", $this->alumno_id);
-    //     $pre->execute();
-    // }
 }
