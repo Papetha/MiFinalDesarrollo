@@ -43,11 +43,6 @@ class Profesor extends Conexion
         return $profesores;
     } //muestro la lista de profesores
 
-    public function materia()
-    {
-        return Materia::getById($this->materia_id);
-    } //traer la materia que da el profesor
-
     public static function getById($id)
     {
         $conexion = new Conexion();
@@ -59,8 +54,9 @@ class Profesor extends Conexion
         $profesor = $valorDb->fetch_object(Profesor::class);
         return $profesor;
     } //agarro por id al profe
-    
-    public function materias()
+
+    public function materias() //  muestro las materias del profesor
+
     {
         $this->conectar();
         $result = mysqli_prepare($this->con, "SELECT materias.* FROM materias INNER JOIN profesor_materia ON materias.id = profesor_materia.materia_id WHERE profesor_materia.profesor_id = ?");

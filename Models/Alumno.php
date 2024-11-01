@@ -3,12 +3,12 @@
 require_once 'Conexion.php';
 require_once 'Materia.php';
 
-class Alumno extends Conexion
+class Alumno extends Conexion // Clase Alumno que hereda de la clase Conexion
+
 {
+    public $id, $nombre, $apellido, $fecnac; // Atributos de la clase Alumno
 
-    public $id, $nombre, $apellido, $fecnac;
-
-    public function create()
+    public function create() // Método para crear un nuevo alumno
     {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "INSERT INTO alumnos (nombre, apellido, fecnac) VALUES (?, ?, ?)");
@@ -16,7 +16,7 @@ class Alumno extends Conexion
         $pre->execute();
     }
 
-    public static function all()
+    public static function all() // Método para obtener todos los alumnos
     {
         $conexion = new Conexion();
         $conexion->conectar();
@@ -24,13 +24,15 @@ class Alumno extends Conexion
         $result->execute();
         $valoresDb = $result->get_result();
         $alumnos = [];
-        while ($alumno = $valoresDb->fetch_object(Alumno::class)) {
-            $alumnos[] = $alumno;
+        while ($alumno = $valoresDb->fetch_object(Alumno::class)) { // Obtenemos cada alumno de la base de datos y las hacemos objetos
+
+            $alumnos[] = $alumno; // Los almacenamos en un array
+
         }
         return $alumnos;
-    } //muestra todos los alumnos en el index
+    }
 
-    public static function getById($id)
+    public static function getById($id) // Método para obtener un alumno por su id
     {
         $conexion = new Conexion();
         $conexion->conectar();
@@ -40,9 +42,9 @@ class Alumno extends Conexion
         $valorDb = $result->get_result();
         $alumno = $valorDb->fetch_object(Alumno::class);
         return $alumno;
-    } //elimina o edita un alumno por id 
+    }
 
-    public function delete()
+    public function delete() // Método para eliminar un alumno
     {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "DELETE FROM alumnos WHERE id = ?");
@@ -50,7 +52,7 @@ class Alumno extends Conexion
         $pre->execute();
     } //bind param medida de seg
 
-    public function update()
+    public function update() // Método para actualizar un alumno
     {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "UPDATE alumnos SET nombre = ?, apellido = ?, fecnac = ? WHERE id = ?");
@@ -58,22 +60,22 @@ class Alumno extends Conexion
         $pre->execute();
     }
 
-    public function materias()
+    public function materias() //  Método para obtener las materias de un alumno
     {
         $this->conectar();
         $result = mysqli_prepare($this->con, "SELECT materias.* FROM materias INNER JOIN alumno_materia ON materias.id = alumno_materia.materia_id WHERE alumno_materia.alumno_id = ?");
         $result->bind_param("i", $this->id);
         $result->execute();
-        $valoresDb = $result->get_result();
+        $valoresDb = $result->get_result(); //  Obtenemos los valores de la base de datos
 
         $materias = [];
-        while ($materia = $valoresDb->fetch_object(Materia::class)) {
+        while ($materia = $valoresDb->fetch_object(Materia::class)) { //  Obtenemos cada materia de la base de datos y las hacemos objetos
             $materias[] = $materia;
         }
         return $materias;
-    } //traer todas las materias de los alumnos por id
+    }
 
-    public function desasignarTodasLasMaterias()
+    public function desasignarTodasLasMaterias() // Método para desasignar todas las materias de un alumno
     {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "DELETE FROM alumno_materia WHERE alumno_id = ?");
@@ -81,7 +83,7 @@ class Alumno extends Conexion
         $pre->execute();
     }
 
-    public function asignarMateria($materia_id)
+    public function asignarMateria($materia_id) // Método para asignar una materia a un alumno
     {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "INSERT INTO alumno_materia (alumno_id, materia_id) VALUES (?, ?)");

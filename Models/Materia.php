@@ -31,7 +31,7 @@ class Materia extends Conexion
         $pre->execute();
     } //ACTUALIZO MATERIA
 
-    public static function all()
+    public static function all() // devuelve todos los datos de la tabla materias
     {
         $conexion = new Conexion();
         $conexion->conectar();
@@ -43,9 +43,9 @@ class Materia extends Conexion
             $materias[] = $materia;
         }
         return $materias;
-    } //ES EL READ BASICAMENTE
+    }
 
-    public static function getById($id)
+    public static function getById($id) //  devuelve un objeto con los datos de la materia con el id indicado
     {
         $conexion = new Conexion();
         $conexion->conectar();
@@ -55,9 +55,9 @@ class Materia extends Conexion
         $valorDb = $result->get_result();
         $materia = $valorDb->fetch_object(Materia::class);
         return $materia;
-    } // agarrar id de la materia 
+    }
 
-    public function profesores()
+    public function profesores() //  devuelve un array con los profesores de la materia
     {
         $this->conectar();
         $result = mysqli_prepare($this->con, "SELECT * FROM profesores WHERE materia_id = ?");
@@ -73,7 +73,7 @@ class Materia extends Conexion
         return $profesores;
     }
 
-    public function alumnos()
+    public function alumnos() //  devuelve un array con los alumnos de la materia
     {
         $this->conectar();
         $result = mysqli_prepare($this->con, "SELECT alumnos.* FROM alumnos INNER JOIN alumno_materia ON alumnos.id = alumno_materia.alumno_id WHERE alumno_materia.materia_id = ?");

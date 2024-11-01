@@ -2,18 +2,18 @@
 require_once __DIR__ . '/../../Models/Profesor.php';
 require_once __DIR__ . '/../../Models/Materia.php';
 
-$id = $_GET['id'];
-$profesor = Profesor::getById($id);
-$todasLasMaterias = Materia::all();
+$id = $_GET['id']; // id del profesor
+$profesor = Profesor::getById($id); //  obtener el profesor por id
+$todasLasMaterias = Materia::all(); //  obtener todas las materias
 
-if (isset($_POST['guardarMaterias'])) {
+if (isset($_POST['guardarMaterias'])) { //  si se ha enviado el formulario de guardar materias
     // Eliminar materias asignadas
-    $profesor->desasignarTodasLasMaterias();
+    $profesor->desasignarTodasLasMaterias(); //   eliminar todas las materias del profesor
 
     // Asignar las nuevas materias 
-    if (isset($_POST['materias'])) {
-        foreach ($_POST['materias'] as $materia_id) {
-            $profesor->asignarMateria($materia_id);
+    if (isset($_POST['materias'])) { //   si se han seleccionado materias
+        foreach ($_POST['materias'] as $materia_id) { //   recorrer las materias seleccionadas
+            $profesor->asignarMateria($materia_id); //    asignar la materia al profesor
         }
     }
 
