@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-3.5.1.js"></script>
     <!-- DataTables JS library -->
@@ -30,12 +30,15 @@
         <div class="container">
             <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
             <div class="navbar-nav">
-                <a class="nav-item nav-link"
-                    href="../Alumnos/indexAlumnos.php">Alumnos</a>
-                <a class="nav-item nav-link"
-                    href="../Profesores/indexProfesores.php">Profesores</a>
-                <a class="nav-item nav-link"
-                    href="../Materias/indexMaterias.php">Materias</a>
+                <a class="nav-item nav-link" href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">
+                    <i class="fas fa-user-graduate"></i> Alumnos
+                </a>
+                <a class="nav-item nav-link" href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">
+                    <i class="fas fa-chalkboard-teacher"></i> Profesores
+                </a>
+                <a class="nav-item nav-link" href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">
+                    <i class="fas fa-book"></i> Materias
+                </a>
             </div>
         </div>
     </nav>

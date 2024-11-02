@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2024 a las 03:25:45
+-- Tiempo de generación: 01-11-2024 a las 21:19:01
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -76,6 +76,15 @@ CREATE TABLE `alumno_materia` (
   `materia_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `alumno_materia`
+--
+
+INSERT INTO `alumno_materia` (`id`, `alumno_id`, `materia_id`) VALUES
+(37, 5, 6),
+(38, 5, 9),
+(39, 5, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -137,6 +146,20 @@ CREATE TABLE `profesor_materia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
+-- Volcado de datos para la tabla `profesor_materia`
+--
+
+INSERT INTO `profesor_materia` (`profesor_id`, `materia_id`) VALUES
+(2, 2),
+(2, 3),
+(2, 4),
+(3, 6),
+(3, 5),
+(4, 11),
+(5, 10),
+(6, 9);
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -188,7 +211,7 @@ ALTER TABLE `alumnos`
 -- AUTO_INCREMENT de la tabla `alumno_materia`
 --
 ALTER TABLE `alumno_materia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
@@ -200,7 +223,7 @@ ALTER TABLE `materias`
 -- AUTO_INCREMENT de la tabla `profesores`
 --
 ALTER TABLE `profesores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
@@ -212,12 +235,6 @@ ALTER TABLE `profesores`
 ALTER TABLE `alumno_materia`
   ADD CONSTRAINT `alumno_materia_ibfk_1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`),
   ADD CONSTRAINT `alumno_materia_ibfk_2` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`id`);
-
---
--- Filtros para la tabla `profesores`
---
-ALTER TABLE `profesores`
-  ADD CONSTRAINT `profesores_ibfk_1` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`id`);
 
 --
 -- Filtros para la tabla `profesor_materia`

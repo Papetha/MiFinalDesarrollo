@@ -31,12 +31,15 @@
         <div class="container">
             <a class="navbar-brand" href="/MiFinalDesarrollo/Controllers/dashboard.php">Pagina principal</a>
             <div class="navbar-nav">
-                <a class="nav-item nav-link"
-                    href="../Alumnos/indexAlumnos.php">Alumnos</a>
-                <a class="nav-item nav-link"
-                    href="../Profesores/indexProfesores.php">Profesores</a>
-                <a class="nav-item nav-link"
-                    href="../Materias/indexMaterias.php">Materias</a>
+                <a class="nav-item nav-link" href="/MiFinalDesarrollo/Controllers/Alumnos/indexAlumnos.php">
+                    <i class="fas fa-user-graduate"></i> Alumnos
+                </a>
+                <a class="nav-item nav-link" href="/MiFinalDesarrollo/Controllers/Profesores/indexProfesores.php">
+                    <i class="fas fa-chalkboard-teacher"></i> Profesores
+                </a>
+                <a class="nav-item nav-link" href="/MiFinalDesarrollo/Controllers/Materias/indexMaterias.php">
+                    <i class="fas fa-book"></i> Materias
+                </a>
             </div>
         </div>
     </nav>
