@@ -2,22 +2,25 @@
 require_once __DIR__ . '/../../Models/Alumno.php';
 require_once __DIR__ . '/../../Models/Materia.php';
 
-$id = $_GET['id']; //obtenemos la id del alumno por url
-$alumno = Alumno::getById($id); //lo buscamos en la bd por esa id
-$todasLasMaterias = Materia::all(); //mostramos una lista de materias
+$id = $_GET['id']; //  id del alumno por url
+$alumno = Alumno::getById($id); 
+$todasLasMaterias = Materia::all(); //  todas las materias de la base de datos
 
-if (isset($_POST['guardarMaterias'])) {
-    //si se aprieta el boton, primero se borran todas las materias del alumno por el metodo
-    $alumno->desasignarTodasLasMaterias();
 
-    //si hay  materias seleccionadas, se asignan
-    if (isset($_POST['materias'])) {
-        foreach ($_POST['materias'] as $materia_id) {
-            $alumno->asignarMateria($materia_id);
+if (isset($_POST['guardarMaterias'])) {// si se ha enviado el formulario
+
+    $alumno->desasignarTodasLasMaterias(); // desasignamos todas las materias del alumno
+
+    if (isset($_POST['materias'])) {//  si se han seleccionado materias
+
+        foreach ($_POST['materias'] as $materia_id) {//  recorremos las materias seleccionadas
+
+            $alumno->asignarMateria($materia_id);//   las asignamos al alumno
+
         }
     }
 
-    header('Location: indexAlumnos.php');
+    header('Location: indexAlumnos.php');// 
     exit;
 }
 

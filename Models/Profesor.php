@@ -20,7 +20,7 @@ class Profesor extends Conexion
         $this->conectar();
         //primero elimino los registros en  la tabla profesor_materia
 
-        $pre = mysqli_prepare($this->con, "DELETE FROM profesor_materia WHERE alumno_id = ?");
+        $pre = mysqli_prepare($this->con, "DELETE FROM profesor_materia WHERE profesor_id = ?");
         $pre->bind_param("i", $this->id);
         $pre->execute();
         
