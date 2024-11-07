@@ -24,9 +24,9 @@
     </nav>
     <div class="container">
         <h1 class="mb-4">Editar Materias de <?= $alumno->nombre . ' ' . $alumno->apellido ?></h1>
-        <form action="" method="post">
-            <div class="form-group">
-                <?php foreach ($todasLasMaterias as $materia): ?>
+        <form action="" method="post"> 
+            <div class="form-group"> 
+                 <?php foreach ($todasLasMaterias as $materia): ?>
                     <div class="custom-control custom-switch mb-2">
                         <input type="checkbox" class="custom-control-input" id="materia_<?= $materia->id ?>"
                             name="materias[]" value="<?= $materia->id ?>"

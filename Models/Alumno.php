@@ -6,7 +6,8 @@ require_once 'Materia.php';
 class Alumno extends Conexion // Clase Alumno que hereda de la clase Conexion
 
 {
-    public $id, $nombre, $apellido, $fecnac; // Atributos de la clase Alumno
+    public $id, $nombre, $apellido, $fecnac; //  Atributos de la clase Alumno 
+
 
     public function create() // Método para crear un nuevo alumno
     {
@@ -39,8 +40,8 @@ class Alumno extends Conexion // Clase Alumno que hereda de la clase Conexion
         $result = mysqli_prepare($conexion->con, "SELECT * FROM alumnos WHERE id = ?");
         $result->bind_param("i", $id);
         $result->execute();
-        $valorDb = $result->get_result();
-        $alumno = $valorDb->fetch_object(Alumno::class);
+        $valorDb = $result->get_result();// Obtenemos el resultado de la consulta
+        $alumno = $valorDb->fetch_object(Alumno::class); // Obtenemos el alumno de la base de datos y lo hacemos objeto
         return $alumno;
     }
 
@@ -76,7 +77,8 @@ class Alumno extends Conexion // Clase Alumno que hereda de la clase Conexion
         $valoresDb = $result->get_result(); //  Obtenemos los valores de la base de datos
 
         $materias = [];
-        while ($materia = $valoresDb->fetch_object(Materia::class)) { //  Obtenemos cada materia de la base de datos y las hacemos objetos
+        while ($materia = $valoresDb->fetch_object(Materia::class)) { //   Creamos un objeto materia para cada fila de la base de datos
+
             $materias[] = $materia;
         }
         return $materias;

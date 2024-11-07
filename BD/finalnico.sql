@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2024 a las 21:19:01
+-- Tiempo de generación: 07-11-2024 a las 15:51:38
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -81,9 +81,19 @@ CREATE TABLE `alumno_materia` (
 --
 
 INSERT INTO `alumno_materia` (`id`, `alumno_id`, `materia_id`) VALUES
-(37, 5, 6),
-(38, 5, 9),
-(39, 5, 5);
+(40, 6, 6),
+(41, 6, 9),
+(42, 6, 5),
+(43, 6, 10),
+(44, 6, 11),
+(45, 6, 2),
+(46, 6, 3),
+(47, 6, 4),
+(80, 5, 6),
+(81, 5, 9),
+(82, 5, 5),
+(83, 5, 10),
+(84, 5, 11);
 
 -- --------------------------------------------------------
 
@@ -119,20 +129,19 @@ INSERT INTO `materias` (`id`, `nombre`) VALUES
 CREATE TABLE `profesores` (
   `id` int(11) NOT NULL,
   `nombre` varchar(11) NOT NULL,
-  `apellido` varchar(11) NOT NULL,
-  `materia_id` int(11) NOT NULL
+  `apellido` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `profesores`
 --
 
-INSERT INTO `profesores` (`id`, `nombre`, `apellido`, `materia_id`) VALUES
-(2, 'Walt', 'Bur', 4),
-(3, 'Nico', 'Rotilli', 5),
-(4, 'Karina ', 'Gigli', 11),
-(5, 'Omar', 'Orlandini', 10),
-(6, 'Viviana', 'Romo', 9);
+INSERT INTO `profesores` (`id`, `nombre`, `apellido`) VALUES
+(2, 'Walt', 'Bur'),
+(3, 'Nico', 'Rotilli'),
+(4, 'Karina ', 'Gigli'),
+(5, 'Omar', 'Orlandini'),
+(6, 'Viviana', 'Romo');
 
 -- --------------------------------------------------------
 
@@ -150,14 +159,14 @@ CREATE TABLE `profesor_materia` (
 --
 
 INSERT INTO `profesor_materia` (`profesor_id`, `materia_id`) VALUES
-(2, 2),
-(2, 3),
-(2, 4),
 (3, 6),
 (3, 5),
 (4, 11),
 (5, 10),
-(6, 9);
+(6, 9),
+(2, 2),
+(2, 3),
+(2, 4);
 
 --
 -- Índices para tablas volcadas
@@ -187,8 +196,7 @@ ALTER TABLE `materias`
 -- Indices de la tabla `profesores`
 --
 ALTER TABLE `profesores`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `materia_id` (`materia_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `profesor_materia`
@@ -205,13 +213,13 @@ ALTER TABLE `profesor_materia`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `alumno_materia`
 --
 ALTER TABLE `alumno_materia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
